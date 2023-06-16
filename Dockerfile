@@ -20,12 +20,12 @@ RUN export DISPLAY=:0 \
    && while pgrep wineserver >/dev/null; do echo "Waiting for wineserver"; sleep 1; done \
    && rm -rf $HOME/.cache/winetricks
 
-RUN set -x -e; \
-    entrypoint wineboot --init; \
-    while true; do \
-      if timeout 30m winetricks --unattended --force cmd dotnet20 dotnet472 corefonts; then \
-        break; \
-      fi \
-    done; \
-    while pgrep wineserver >/dev/null; do echo "Waiting for wineserver"; sleep 1; done; \
-    rm -rf $HOME/.cache/winetricks;
+# RUN set -x -e; \
+#     entrypoint wineboot --init; \
+#     while true; do \
+#       if timeout 30m winetricks --unattended --force cmd dotnet20 dotnet472 corefonts; then \
+#         break; \
+#       fi \
+#     done; \
+#     while pgrep wineserver >/dev/null; do echo "Waiting for wineserver"; sleep 1; done; \
+#     rm -rf $HOME/.cache/winetricks;
